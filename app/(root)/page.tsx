@@ -1,8 +1,5 @@
+const Homepage = async () => {
+  return <> Home Page </>;
+};
 
-export default function Home() {
-  return (
-    <div>
-      Root layout
-     </div>
-  );
-}
+export default Homepage;
