@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Some packages notes 
+
+1. `@neondatabase/serverless` : Provides a low level connection interface to interact with Neon serverless PostgreSQL database using Websockers.
+
+2. `@prisma/adapter-neon` : This is an adapter specifically for Prisma to ensure Prisma can operate smoothly with Neon in serverless environments.
+
+3. `ws` : Websocket library used by Neon adapter to establish and manage connections to the Neon serverless database.
