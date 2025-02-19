@@ -42,3 +42,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 2. `@prisma/adapter-neon` : This is an adapter specifically for Prisma to ensure Prisma can operate smoothly with Neon in serverless environments.
 
 3. `ws` : Websocket library used by Neon adapter to establish and manage connections to the Neon serverless database.
+
+4. `bycrypt-ts-edge`: working absolutely the same with bcrypt, but support typescript and running on serverless environment.
