@@ -39,10 +39,9 @@ export const config = {
                             role: user.role
                         };
                     }
+                    // if password doesnt match, or user not exist
+                    return null;
                 }
-
-                // if password doesnt match, or user not exist
-                return null;
             }
         })
     ],
@@ -61,4 +60,4 @@ export const config = {
     },
 } satisfies NextAuthConfig;
 
-const { handlers, auth, signIn, signOut } = NextAuth(config);
+export const { handlers, auth, signIn, signOut } = NextAuth(config);
