@@ -17,20 +17,24 @@ export function formatNumberWithDecimal(num: number): string {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function formatError(error: any) {
+export function formatError(error: any): string {
   if (error.name === 'ZodError') {
     // Handle Zod Error
-    const fieldErrorsMessages = Object.keys(error.errors).map(field => error.errors[field].message);
-
-    return fieldErrorsMessages.join('. ')
-
-  } else if (error.name === 'PrismaClientKnownRequestError' && error.code === 'P2002') {
+    const fieldErrors = Object.keys(error.errors).map(
+      (field) => error.errors[field].message
+    );
+    return fieldErrors.join('. ');
+  } else if (
+    error.name === 'PrismaClientKnownRequestError' &&
+    error.code === 'P2002'
+  ) {
     // Handle Prisma Error
-    const field = error?.meta?.target ? error.meta.target[0] : "Field";
-
-    return `${field.charAt(0).toUpperCase() + field.slice(1)} already exists.`
+    const field = error.meta?.target ? error.meta?.target[0] : 'Field';
+    return `${field.charAt(0).toUpperCase() + field.slice(1)} already exists`;
   } else {
-    // Handle Others Error
-    return typeof error.message === 'string' ? error.message : JSON.stringify(error.message);
+    // Handle other errors
+    return typeof error.message === 'string'
+      ? error.message
+      : JSON.stringify(error.message);
   }
 }

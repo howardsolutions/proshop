@@ -52,18 +52,15 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
                 name: user.name,
                 email: user.email,
                 password: user.password,
-            }
+            },
         });
 
-        // Sign User in after sign up
         await signIn('credentials', {
             email: user.email,
-            password: plainPassword
+            password: plainPassword,
         });
 
-        return { success: true, message: "User registered successfully" }
-
-
+        return { success: true, message: 'User registered successfully' };
     } catch (error) {
         if (isRedirectError(error)) {
             throw error;
